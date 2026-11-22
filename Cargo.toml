@@ -1,0 +1,26 @@
+[package]
+name = "xray-rs-window"
+version = "0.1.0"
+edition = "2024"
+authors = ["abc15018045126", "Xray Rust Team"]
+description = "Windows FFI wrappers for xray-rs (WinSock, IpHelper, Process/Thread telemetry)."
+repository = "https://github.com/abc15018045126/xray-rs-window"
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+keywords = ["xray", "windows", "tun", "ffi"]
+categories = ["os::windows-apis", "network-programming"]
+
+[dependencies]
+ipnet = "2"
+
+[target.'cfg(windows)'.dependencies]
+windows = { version = "0.62", features = [
+    "Win32_Networking_WinSock",
+    "Win32_Foundation",
+    "Win32_NetworkManagement_Rras",
+    "Win32_NetworkManagement_IpHelper",
+    "Win32_NetworkManagement_Ndis",
+    "Win32_Security_Authorization",
+    "Win32_System_Threading",
+    "Win32_System_ProcessStatus"
+] }
